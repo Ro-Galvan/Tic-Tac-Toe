@@ -23,9 +23,15 @@ public class GameApplication {
 
 //		extracted the method for switch case so it can be reused
 
-		playerMove(gameBoard);
+		playerTurn(gameBoard);
 
 
+		computerTurn(gameBoard);
+
+		printBoard(gameBoard);
+	}
+
+	private static void computerTurn(char[][] gameBoard) {
 		Random random = new Random();
 		int computerMove;
 		while (true) {
@@ -35,10 +41,9 @@ public class GameApplication {
 			}
 		}
 		placeMove(gameBoard, Integer.toString(computerMove), 'O');
-
-		printBoard(gameBoard);
 	}
-		private static boolean isValidMove (char[][] gameBoard, int position){
+
+	private static boolean isValidMove (char[][] gameBoard, int position){
 			switch (position) {
 				case 1:
 					if (gameBoard[0][0] == ' ') {
@@ -67,8 +72,8 @@ public class GameApplication {
 					return false;
 			}
 		}
-// *************** PLAYER MOVE **************
-		private static void playerMove ( char[][] gameBoard){
+// *************** PLAYER Turn **************
+		private static void playerTurn ( char[][] gameBoard){
 			//		adding Scanner class so the user can be prompted to enter X or O
 			Scanner scanner = new Scanner(System.in);
 			System.out.println("Please select a number on the board where you would like to place your game piece?");
@@ -109,7 +114,7 @@ public class GameApplication {
 					gameBoard[2][2] = xOrY;
 					break;
 				default:
-					System.out.println("Please try a valid input (X or Y)");
+					System.out.println("Please try a valid spot on the board");
 			}
 		}
 

@@ -22,13 +22,12 @@ public class GameApplication {
 
 
 //		extracted the method for switch case so it can be reused
-
-		playerTurn(gameBoard);
-
-
-		computerTurn(gameBoard);
-
-		printBoard(gameBoard);
+		while (true) {
+			playerTurn(gameBoard);
+			printBoard(gameBoard);
+			computerTurn(gameBoard);
+			printBoard(gameBoard);
+		}
 	}
 
 	private static void computerTurn(char[][] gameBoard) {
@@ -40,6 +39,7 @@ public class GameApplication {
 				break;
 			}
 		}
+		System.out.println("Computer chose " + computerMove);
 		placeMove(gameBoard, Integer.toString(computerMove), 'O');
 	}
 
